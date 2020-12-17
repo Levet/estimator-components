@@ -1,8 +1,7 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
 import App from './App.vue'
 import router from './router'
-// import store from './store'
+import store from './store'
 
 import { BootstrapVue } from 'bootstrap-vue'
 
@@ -57,9 +56,8 @@ Vue.directive('click-outside', {
   }
 })
 
-
 new Vue({
   router,
-  // store,
+  store,
   render: h => h(App),
 }).$mount('#app')

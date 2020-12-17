@@ -1,28 +1,41 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import plugin from "./plugins/newPost.plugin"
+// import plugin from "./plugins/newPost.plugin"
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    posts: []
+    user: {},
+    status: ""
   },
   mutations: {
-    addPostToList(state, post){
-      state.posts.push(post);
+    successfulAuthentication(state, user){
+      state.user = user;
+      state.status = "authenticated";
     },
-    setPosts(state, posts){
-      console.log(posts)
-      state.posts = posts;
+    logout(state){
+      state.user = {};
+      state.status = "";
     }
   },
   actions: {
-    getPosts(state){
-      io.socket.get("/posts", body => {
-        state.commit("setPosts", body)
-      })
+    login({commit}, user){
+      commit("successfulAuthentication", user)
+    },
+    logout({ commit }){
+      console.log("Logging out...")
+      commit("logout")
     }
   },
-  plugins: [ plugin(io.socket) ]
+  getters: {
+    isAuthenticated(state){
+      console.log(state)
+      return state.status === "authenticated"
+    },
+    user(state){
+      return state.user;
+    }
+  }
+  // plugins: [ plugin(io.socket) ]
 })

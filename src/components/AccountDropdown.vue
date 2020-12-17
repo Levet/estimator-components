@@ -1,8 +1,8 @@
 <template>
-  <div class="hs-unfold" v-click-outside="{ handler: 'handleClickOutside', exclude: ['accountNavbarDropdown']}">
+  <div class="hs-unfold" v-click-outside="{ handler: 'handleClickOutside', exclude: ['accountNavbarDropdown']}" v-if="status === 'authenticated'">
     <a ref="accountNavbarDropdown" class="js-hs-unfold-invoker navbar-dropdown-account-wrapper" href="#" @click.prevent="toggleUserDetails">
       <div class="avatar avatar-sm avatar-circle">
-        <img class="avatar-img" src="../../public/img/160x160/img6.jpg" alt="Image Description">
+        <img class="avatar-img" :src="user.avatar" alt="Image Description">
         <span class="avatar-status avatar-sm-status avatar-status-success"></span>
       </div>
     </a>
@@ -67,34 +67,38 @@
 
       <div class="dropdown-divider"></div>
 
-      <a class="dropdown-item" href="#">
-        <span class="text-truncate pr-2" title="Sign out">Sign out</span>
+      <a class="dropdown-item" href="#" @click="logout">
+        <span class="text-truncate pr-2" title="Sign out" >Sign out</span>
       </a>
     </div>
   </div>
 </template>
 <script>
+
+  import { mapState } from "vuex";
+
   export default {
     data(){
       return {
         showUserDetails: false,
-        user: {
-          name: "Mark Williams",
-          email: "Mark@example.com",
-          avatar: "/img/160x160/img6.jpg"
-        }
       }
     },
     methods: {
+      logout(){
+        this.$store.dispatch("logout")
+        this.$router.push({path: "/Authentication"})
+      },
       toggleUserDetails(){
         this.showUserDetails = !this.showUserDetails
       },
       handleClickOutside(event){
-        console.log(this.showUserDetails)
         if(this.showUserDetails){
           this.showUserDetails = false;
         }
       }
+    },
+    computed: {
+      ...mapState(["status", "user"])
     }
   }
 </script>

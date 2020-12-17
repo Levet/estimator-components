@@ -28,7 +28,7 @@
                     <h1 class="display-4">Sign in</h1>
                   </div>
 
-                  <a class="btn btn-lg btn-block btn-white mb-4" href="#">
+                  <a class="btn btn-lg btn-block btn-white mb-4" href="#" @click="login">
                         <span class="d-flex justify-content-center align-items-center">
                           <img class="avatar avatar-xss mr-2" src="../../public/svg/brands/microsoft-teams.svg" alt="Image Description">
                           Sign in with Microsoft Teams
@@ -55,5 +55,18 @@
 </template>
 <script>
 export default {
+  methods: {
+    login(){
+      const user = {
+        name: "Mark Williams",
+        email: "Mark@example.com",
+        avatar: "/img/160x160/img6.jpg"
+      }
+
+      this.$store.dispatch("login", user);
+
+      this.$router.push({ path: "/"})
+    }
+  }
 }
 </script>
