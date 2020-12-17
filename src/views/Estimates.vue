@@ -1,7 +1,7 @@
 <template>
-  <div class="about">
+  <div class="estimates">
     <breadcrumbs :crumbs="crumbs"></breadcrumbs>
-    <h1>This is an about page</h1>
+    <h1>Estimates</h1>
   </div>
 </template>
 <script>

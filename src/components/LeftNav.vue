@@ -13,8 +13,8 @@
         <div class="navbar-vertical-content">
 
           <ul class="navbar-nav navbar-nav-lg nav-tabs">
-            <li class="nav-item" v-for="category of menu.items" :class="{ 'active': category.name === $router.currentRoute.name }">
-              <router-link :to="category.destination" class=" nav-link" :title="category.name" :class="{ 'active': category.name === $router.currentRoute.name }">
+            <li class="nav-item" v-for="category of menu.items" :class="{ 'active': category.name === $route.name }">
+              <router-link :to="category.destination" class=" nav-link" :title="category.name" :class="{ 'active': category.name === $route.name }">
                 <i class="nav-icon" :class="category.icon"></i>
                 <span class="text-truncate">{{category.name}}</span>
               </router-link>
@@ -75,7 +75,7 @@
         menu: {
           items: [
             {
-              name: "Dashboards",
+              name: "Home",
               icon: "tio-home-vs-1-outlined",
               destination: "/"
               // items: [
@@ -85,7 +85,7 @@
             {
               name: "Estimates",
               icon: "tio-pages-outlined",
-              destination: "about"
+              destination: "estimates"
             },
             {
               name: "Authentication",
@@ -109,7 +109,7 @@
           // ]
         }
       }
-    }
+    },
   }
 </script>
 
