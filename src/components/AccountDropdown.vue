@@ -1,6 +1,6 @@
 <template>
   <div class="hs-unfold" v-click-outside="{ handler: 'handleClickOutside', exclude: ['accountNavbarDropdown']}" v-if="status === 'authenticated'">
-    <a ref="accountNavbarDropdown" class="js-hs-unfold-invoker navbar-dropdown-account-wrapper" href="#" @click.prevent="toggleUserDetails">
+    <a id="navbarAvatar" ref="accountNavbarDropdown" class="js-hs-unfold-invoker navbar-dropdown-account-wrapper" href="#" @click.prevent="toggleUserDetails">
       <div class="avatar avatar-sm avatar-circle">
         <img class="avatar-img" :src="user.avatar" alt="Image Description">
         <span class="avatar-status avatar-sm-status avatar-status-success"></span>

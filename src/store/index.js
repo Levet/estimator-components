@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: {},
-    status: ""
+    status: "unauthenticated"
   },
   mutations: {
     successfulAuthentication(state, user){

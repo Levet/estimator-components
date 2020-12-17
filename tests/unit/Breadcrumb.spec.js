@@ -12,7 +12,8 @@ describe("Breadcrumbs.vue", () => {
     ];
 
     const wrapper = shallowMount(Breadcrumbs, {
-      propsData: { crumbs }
+      propsData: { crumbs },
+      stubs: ['router-link']
     })
 
     expect(wrapper.text()).to.include("Home")
@@ -27,7 +28,8 @@ describe("Breadcrumbs.vue", () => {
     ];
 
     const wrapper = shallowMount(Breadcrumbs, {
-      propsData: { crumbs }
+      propsData: { crumbs },
+      stubs: ['router-link']
     });
 
     expect(wrapper.html()).to.include("<li class=\"breadcrumb-item active\"> Me </li>")

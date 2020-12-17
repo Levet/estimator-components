@@ -5,7 +5,7 @@
         <!-- Logo -->
         <a class="navbar-brand" href="./index.html" aria-label="Front">
           <img class="navbar-brand-logo" src="../../public/svg/logos/logo.svg" alt="Logo">
-          <img class="navbar-brand-logo-mini" src="../../public/svg/logos/logo-short.svg" alt="Logo">
+<!--          <img class="navbar-brand-logo-mini" src="../../public/svg/logos/logo-short.svg" alt="Logo">-->
         </a>
         <!-- End Logo -->
       </div>
